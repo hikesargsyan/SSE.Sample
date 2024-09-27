@@ -3,9 +3,18 @@ using OneInc.Server.Infrastructure;
 using OneInc.Server.Web;
 
 var builder = WebApplication.CreateBuilder(args);
+IWebHostEnvironment environment = builder.Environment;
+
+IConfiguration configuration = new ConfigurationBuilder()
+    .SetBasePath(environment.ContentRootPath)
+    .AddJsonFile($"appsettings.{environment.EnvironmentName}.json", true, true)
+    .AddEnvironmentVariables()
+    .Build();
+
+Console.WriteLine($"Environment: {environment.EnvironmentName}");
 
 builder.Services.AddApplicationServices();
-builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddInfrastructureServices(builder.Configuration, environment);
 builder.Services.AddWebServices();
 
 var app = builder.Build();
