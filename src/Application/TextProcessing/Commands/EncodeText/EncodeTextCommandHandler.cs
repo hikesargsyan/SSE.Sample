@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using OneInc.Server.Application.Common.Interfaces;
 
-namespace OneInc.Server.Application.Processing.Commands.EncodeText;
+namespace OneInc.Server.Application.TextProcessing.Commands.EncodeText;
 
 public class EncodeTextCommandHandler : IRequestHandler<EncodeTextCommand, string>
 {

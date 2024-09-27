@@ -1,8 +1,8 @@
 ﻿using System.Runtime.CompilerServices;
 using OneInc.Server.Application.Common.Interfaces;
-using OneInc.Server.Application.Processing.Commands.EncodeText;
+using OneInc.Server.Application.TextProcessing.Commands.EncodeText;
 
-namespace OneInc.Server.Application.Processing.Commands.ProcessText;
+namespace OneInc.Server.Application.TextProcessing.Commands.ProcessText;
 
 public class ProcessTextCommandHandler : IRequestHandler<ProcessTextCommand, IAsyncEnumerable<char>>
 {

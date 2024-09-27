@@ -1,4 +1,4 @@
-﻿namespace OneInc.Server.Application.Processing.Commands.EncodeText;
+﻿namespace OneInc.Server.Application.TextProcessing.Commands.EncodeText;
 
 public class EncodeTextCommand : IRequest<string>
 {

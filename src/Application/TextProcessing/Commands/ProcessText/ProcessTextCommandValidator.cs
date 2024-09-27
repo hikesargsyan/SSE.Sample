@@ -1,7 +1,7 @@
-﻿using OneInc.Server.Application.Processing.Commands.ProcessText;
+﻿using OneInc.Server.Application.TextProcessing.Commands.ProcessText;
 using OneInc.Server.Domain.Constants;
 
-namespace OneInc.Server.Application.Processing.Commands.EncodeText;
+namespace OneInc.Server.Application.TextProcessing.Commands.EncodeText;
 
 public class ProcessTextCommandValidator : AbstractValidator<ProcessTextCommand>
 {

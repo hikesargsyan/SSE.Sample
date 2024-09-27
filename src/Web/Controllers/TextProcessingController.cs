@@ -1,16 +1,16 @@
 ﻿using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Mvc;
-using OneInc.Server.Application.Processing.Commands.ProcessText;
+using OneInc.Server.Application.TextProcessing.Commands.ProcessText;
 
 namespace OneInc.Server.Web.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class ProcessingController : ControllerBase
+public class TextProcessingController : ControllerBase
 {
     private readonly IMediator _mediator;
 
-    public ProcessingController(IMediator mediator)
+    public TextProcessingController(IMediator mediator)
     {
         _mediator = mediator;
     }
