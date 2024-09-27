@@ -1,9 +1,17 @@
 ﻿using System.Text;
+using OneInc.Server.Application.Common.Interfaces;
 
 namespace OneInc.Server.Application.Processing.Commands.EncodeText;
 
 public class EncodeTextCommandHandler : IRequestHandler<EncodeTextCommand, string>
 {
+    private readonly ICacheService _cacheService;
+
+    public EncodeTextCommandHandler(ICacheService cacheService)
+    {
+        _cacheService = cacheService;
+    }
+
     public Task<string> Handle(EncodeTextCommand request, CancellationToken cancellationToken)
     {
         var charsCountMap = new Dictionary<char, int>();
@@ -28,6 +36,10 @@ public class EncodeTextCommandHandler : IRequestHandler<EncodeTextCommand, strin
         resultBuilder
             .Append('/')
             .Append(base64Encoded);
+
+        var result = resultBuilder.ToString();
+        
+        _cacheService.SetAsync(request.Text, result, cancellationToken);
 
         return Task.FromResult(resultBuilder.ToString());
     }
