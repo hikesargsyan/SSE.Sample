@@ -21,9 +21,9 @@ var app = builder.Build();
 
 app.UseStaticFiles();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller}/{action=Index}/{id?}");
+app.UseRouting();
+
+app.UseExceptionHandler();
 
 app.UseSwagger();
 
@@ -32,6 +32,13 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
     c.RoutePrefix = string.Empty;
 });
+
+
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller}/{action=Index}/{id?}");
+
 
 app.Run();
 
