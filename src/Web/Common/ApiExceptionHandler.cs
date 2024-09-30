@@ -1,14 +1,14 @@
-﻿using OneInc.Server.Application.Common.Exceptions;
-using Microsoft.AspNetCore.Diagnostics;
+﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using OneInc.Server.Application.Common.Exceptions;
 
-namespace OneInc.Server.Web.Infrastructure;
+namespace OneInc.Server.Web.Common;
 
-public class AppExceptionHandler : IExceptionHandler
+public class ApiExceptionHandler : IExceptionHandler
 {
     private readonly Dictionary<Type, Func<HttpContext, Exception, Task>> _exceptionHandlers;
 
-    public AppExceptionHandler()
+    public ApiExceptionHandler()
     {
         // Register known exception types and handlers.
         _exceptionHandlers = new()
@@ -24,9 +24,9 @@ public class AppExceptionHandler : IExceptionHandler
     {
         var exceptionType = exception.GetType();
 
-        if (_exceptionHandlers.TryGetValue(exceptionType, out Func<HttpContext, Exception, Task>? handler))
+        if (_exceptionHandlers.ContainsKey(exceptionType))
         {
-            await handler.Invoke(httpContext, exception);
+            await _exceptionHandlers[exceptionType].Invoke(httpContext, exception);
             return true;
         }
 
