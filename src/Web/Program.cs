@@ -23,9 +23,12 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseCors("AllowAll");
+
 app.UseExceptionHandler();
 
 app.UseSwagger();
+
 
 app.UseSwaggerUI(c =>
 {
