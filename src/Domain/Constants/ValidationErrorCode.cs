@@ -2,5 +2,5 @@
 
 public static class ValidationErrorCode
 {
-    public static string NotNullOrEmpty = "NOT_NULL";
+    public static readonly string NotNullOrEmpty = "NOT_NULL";
 }
