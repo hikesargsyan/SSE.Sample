@@ -1,6 +1,7 @@
-﻿namespace OneInc.Server.Application.TextProcessing.Commands.ProcessText;
+﻿
+namespace OneInc.Server.Application.TextProcessing.Commands.ProcessText;
 
-public class ProcessTextCommand : IRequest<IAsyncEnumerable<char>>
+public class ProcessTextCommand : ICommand<IAsyncEnumerable<char>>
 {
     public ProcessTextCommand(string text)
     {

@@ -7,21 +7,15 @@ namespace OneInc.Server.Application.TextProcessing.Commands.ProcessText;
 public class ProcessTextCommandHandler : IRequestHandler<ProcessTextCommand, IAsyncEnumerable<char>>
 {
     private readonly IMediator _mediator;
-    private readonly ICacheService _cacheService;
 
-    public ProcessTextCommandHandler(IMediator mediator, ICacheService cacheService)
+    public ProcessTextCommandHandler(IMediator mediator)
     {
         _mediator = mediator;
-        _cacheService = cacheService;
     }
 
     public async Task<IAsyncEnumerable<char>> Handle(ProcessTextCommand request, CancellationToken cancellationToken)
     {
-        var encodedText = await _cacheService.GetAsync<string>(
-            request.Text,
-            async () => await _mediator.Send(new EncodeTextCommand(request.Text), cancellationToken),
-            cancellationToken
-        );
+        var encodedText = await _mediator.Send(new EncodeTextCommand(request.Text), cancellationToken);
 
         return ProcessTextAsync(encodedText, cancellationToken);
     }

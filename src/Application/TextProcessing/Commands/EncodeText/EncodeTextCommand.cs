@@ -1,6 +1,7 @@
-﻿namespace OneInc.Server.Application.TextProcessing.Commands.EncodeText;
+﻿
+namespace OneInc.Server.Application.TextProcessing.Commands.EncodeText;
 
-public class EncodeTextCommand : IRequest<string>
+public class EncodeTextCommand : ICommand<string>
 {
     public EncodeTextCommand(string text)
     {
