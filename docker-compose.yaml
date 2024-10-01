@@ -1,0 +1,15 @@
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: angular
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
