@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>OneInc.Server.Domain</RootNamespace>
     <AssemblyName>OneInc.Server.Domain</AssemblyName>
   </PropertyGroup>
