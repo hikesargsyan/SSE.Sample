@@ -1,7 +1,6 @@
-﻿using OneInc.Server.Application.TextProcessing.Commands.ProcessText;
-using OneInc.Server.Domain.Constants;
+﻿using OneInc.Server.Domain.Constants;
 
-namespace OneInc.Server.Application.TextProcessing.Commands.EncodeText;
+namespace OneInc.Server.Application.TextProcessing.Commands.ProcessText;
 
 public class ProcessTextCommandValidator : AbstractValidator<ProcessTextCommand>
 {
@@ -9,6 +8,8 @@ public class ProcessTextCommandValidator : AbstractValidator<ProcessTextCommand>
     {
         RuleFor(x => x.Text)
             .Must(s => !string.IsNullOrWhiteSpace(s) )
-            .WithMessage(ValidationErrorCode.NotNullOrEmpty);
+            .WithMessage(ValidationErrorCode.NotNullOrEmpty)
+            .MaximumLength(100)
+            .WithMessage(ValidationErrorCode.MaxLength);;
     }
 }

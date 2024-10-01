@@ -1,6 +1,7 @@
 ﻿using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using OneInc.Server.Web.Common;
 
 namespace OneInc.Server.Web;
@@ -12,7 +13,10 @@ public static class DependencyInjection
 
         services.AddHttpContextAccessor();
 
-        services.AddControllers();
+        services.AddControllers(options =>
+        {
+            options.Conventions.Add(new RouteTokenTransformerConvention(new KebabCaseTransformer()));
+        });
 
         services.AddExceptionHandler<ApiExceptionHandler>();
         services.AddProblemDetails();

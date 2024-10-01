@@ -10,7 +10,6 @@ public class ApiExceptionHandler : IExceptionHandler
 
     public ApiExceptionHandler()
     {
-        // Register known exception types and handlers.
         _exceptionHandlers = new()
             {
                 { typeof(ValidationException), HandleValidationException },

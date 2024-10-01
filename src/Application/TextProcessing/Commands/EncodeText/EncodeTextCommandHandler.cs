@@ -29,8 +29,6 @@ public class EncodeTextCommandHandler : IRequestHandler<EncodeTextCommand, strin
         resultBuilder
             .Append('/')
             .Append(base64Encoded);
-
-        var result = resultBuilder.ToString();
         
         return Task.FromResult(resultBuilder.ToString());
     }

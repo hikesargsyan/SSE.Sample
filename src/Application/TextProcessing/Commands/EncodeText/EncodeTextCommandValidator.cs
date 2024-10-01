@@ -8,6 +8,8 @@ public class EncodeTextCommandValidator : AbstractValidator<EncodeTextCommand>
     {
         RuleFor(x => x.Text)
             .Must(s => !string.IsNullOrWhiteSpace(s) )
-            .WithMessage(ValidationErrorCode.NotNullOrEmpty);
+            .WithMessage(ValidationErrorCode.NotNullOrEmpty)
+            .MaximumLength(100)
+            .WithMessage(ValidationErrorCode.MaxLength);
     }
 }
