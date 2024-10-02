@@ -1,4 +1,4 @@
-﻿using OneInc.Server.Domain.Constants;
+﻿using OneInc.Server.Application.Common.Constants;
 
 namespace OneInc.Server.Application.TextProcessing.Commands.ProcessText;
 

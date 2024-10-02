@@ -1,14 +1,14 @@
 using FluentValidation.TestHelper;
+using OneInc.Server.Application.Common.Constants;
 using OneInc.Server.Application.TextProcessing.Commands.ProcessText;
-using OneInc.Server.Domain.Constants;
 
 namespace ApplicationTests;
 
-public class ProcessTextTests
+public class ProcessTextValidatorTests
 {
     private readonly ProcessTextCommandValidator _validator;
 
-    public ProcessTextTests()
+    public ProcessTextValidatorTests()
     {
         _validator = new ProcessTextCommandValidator();
     }

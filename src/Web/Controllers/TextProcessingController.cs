@@ -1,6 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using OneInc.Server.Application.Common.Exceptions;
 using OneInc.Server.Application.TextProcessing.Commands.ProcessText;
 
 namespace OneInc.Server.Web.Controllers;

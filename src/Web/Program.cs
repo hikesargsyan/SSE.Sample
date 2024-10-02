@@ -1,5 +1,4 @@
 using OneInc.Server.Application;
-using OneInc.Server.Infrastructure;
 using OneInc.Server.Web;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,10 +10,7 @@ IConfiguration configuration = new ConfigurationBuilder()
     .AddEnvironmentVariables()
     .Build();
 
-Console.WriteLine($"Environment: {environment.EnvironmentName}");
-
 builder.Services.AddApplicationServices();
-builder.Services.AddInfrastructureServices(builder.Configuration, environment);
 builder.Services.AddWebServices();
 
 var app = builder.Build();
