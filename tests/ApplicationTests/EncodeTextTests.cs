@@ -8,7 +8,6 @@ namespace ApplicationTests;
 
 public class EncodeTextTests
 {
-
     [Theory]
     [InlineData("Hello, World!", " 1!1,1H1W1d1e1l3o2r1/SGVsbG8sIFdvcmxkIQ==")]
     [InlineData("a", "a1/YQ==")]
