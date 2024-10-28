@@ -19,7 +19,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseCors("AllowAll");
+app.UseCors("AllowWebClient");
 
 app.UseExceptionHandler();
 
