@@ -26,7 +26,7 @@ public static class DependencyInjection
 
         services.AddCors(options =>
         {
-            options.AddPolicy("AllowAll",
+            options.AddPolicy("AllowWebClient",
                 builder =>
                 {
                     builder.WithOrigins("http://localhost:4200")
