@@ -37,7 +37,6 @@ public static class DependencyInjection
         });
 
         services.AddSwaggerGen();
-
         return services;
     }
 }
