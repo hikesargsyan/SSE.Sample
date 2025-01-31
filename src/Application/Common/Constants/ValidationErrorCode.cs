@@ -1,4 +1,4 @@
-﻿namespace OneInc.Server.Application.Common.Constants;
+﻿namespace App.Application.Common.Constants;
 
 public static class ValidationErrorCode
 {

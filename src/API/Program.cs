@@ -1,17 +1,17 @@
-using OneInc.Server.Application;
-using OneInc.Server.Web;
+using App.Application;
+using App.Api;
 
 var builder = WebApplication.CreateBuilder(args);
-IWebHostEnvironment environment = builder.Environment;
+var environment = builder.Environment;
 
-IConfiguration configuration = new ConfigurationBuilder()
+builder.Configuration
     .SetBasePath(environment.ContentRootPath)
     .AddJsonFile($"appsettings.{environment.EnvironmentName}.json", true, true)
     .AddEnvironmentVariables()
     .Build();
 
 builder.Services.AddApplicationServices();
-builder.Services.AddWebServices();
+builder.Services.AddApiServices();
 
 var app = builder.Build();
 
@@ -19,7 +19,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseCors("AllowWebClient");
+app.UseCors(nameof(App));
 
 app.UseExceptionHandler();
 
@@ -27,7 +27,7 @@ app.UseSwagger();
 
 app.UseSwaggerUI(c =>
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "SSE Sample API");
     c.RoutePrefix = string.Empty;
 });
 

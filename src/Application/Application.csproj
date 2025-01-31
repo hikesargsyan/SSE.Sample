@@ -1,16 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>OneInc.Server.Application</RootNamespace>
-    <AssemblyName>OneInc.Server.Application</AssemblyName>
+    <RootNamespace>App.Application</RootNamespace>
+    <AssemblyName>App.Application</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
     <PackageReference Include="MediatR" />
-    <PackageReference Include="Newtonsoft.Json" />
   </ItemGroup>
 
 </Project>

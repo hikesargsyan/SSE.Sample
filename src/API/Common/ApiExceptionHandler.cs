@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Diagnostics;
+﻿using App.Application.Common.Exceptions;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using OneInc.Server.Application.Common.Exceptions;
 
-namespace OneInc.Server.Web.Common;
+namespace App.Api.Common;
 
 public class ApiExceptionHandler : IExceptionHandler
 {
@@ -22,9 +22,9 @@ public class ApiExceptionHandler : IExceptionHandler
     {
         var exceptionType = exception.GetType();
 
-        if (_exceptionHandlers.ContainsKey(exceptionType))
+        if (_exceptionHandlers.TryGetValue(exceptionType, out Func<HttpContext, Exception, Task>? handler))
         {
-            await _exceptionHandlers[exceptionType].Invoke(httpContext, exception);
+            await handler.Invoke(httpContext, exception);
             return true;
         }
 

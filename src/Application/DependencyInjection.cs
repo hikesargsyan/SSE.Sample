@@ -1,15 +1,16 @@
 ﻿using System.Reflection;
+using App.Application.Common.Behaviours;
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
-using OneInc.Server.Application.Common.Behaviours;
 
-namespace OneInc.Server.Application;
+namespace App.Application;
 
 public static class DependencyInjection
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
-        services.AddFluentValidationAutoValidation()
+        services
+            .AddFluentValidationAutoValidation()
             .AddFluentValidationClientsideAdapters();
         
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());

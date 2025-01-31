@@ -1,13 +1,14 @@
 ﻿using System.Text;
-using OneInc.Server.Application.Common.Interfaces;
+using App.Application.Common.Interfaces;
 
-namespace OneInc.Server.Application.TextProcessing.Commands.EncodeText;
+namespace App.Application.TextProcessing.Commands.EncodeText;
 
 public class EncodeTextCommandHandler : IRequestHandler<EncodeTextCommand, string>
 {
     public Task<string> Handle(EncodeTextCommand request, CancellationToken cancellationToken)
     {
         var charsCountMap = new Dictionary<char, int>();
+        
         foreach (var c in request.Text)
         {
             if (!charsCountMap.TryAdd(c, 1))

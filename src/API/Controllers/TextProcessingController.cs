@@ -1,8 +1,8 @@
-﻿using MediatR;
+﻿using App.Application.TextProcessing.Commands.ProcessText;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using OneInc.Server.Application.TextProcessing.Commands.ProcessText;
 
-namespace OneInc.Server.Web.Controllers;
+namespace App.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]

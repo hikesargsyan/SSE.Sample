@@ -1,16 +1,15 @@
-﻿using FluentValidation.AspNetCore;
+﻿using App.Api.Common;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
-using OneInc.Server.Web.Common;
 
-namespace OneInc.Server.Web;
+namespace App.Api;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddWebServices(this IServiceCollection services)
+    public static IServiceCollection AddApiServices(this IServiceCollection services)
     {
-
         services.AddHttpContextAccessor();
 
         services.AddControllers(options =>
@@ -26,7 +25,7 @@ public static class DependencyInjection
 
         services.AddCors(options =>
         {
-            options.AddPolicy("AllowWebClient",
+            options.AddPolicy(nameof(App),
                 builder =>
                 {
                     builder.WithOrigins("http://localhost:4200")

@@ -1,6 +1,6 @@
 using FluentValidation.TestHelper;
-using OneInc.Server.Application.Common.Constants;
-using OneInc.Server.Application.TextProcessing.Commands.ProcessText;
+using App.Application.Common.Constants;
+using App.Application.TextProcessing.Commands.ProcessText;
 
 namespace ApplicationTests;
 

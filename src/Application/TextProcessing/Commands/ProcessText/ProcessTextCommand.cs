@@ -1,12 +1,6 @@
 ﻿
-namespace OneInc.Server.Application.TextProcessing.Commands.ProcessText;
+using App.Application.Common.Interfaces;
 
-public class ProcessTextCommand : ICommand<IAsyncEnumerable<char>>
-{
-    public ProcessTextCommand(string text)
-    {
-        Text = text;
-    }
+namespace App.Application.TextProcessing.Commands.ProcessText;
 
-    public string Text { get; }
-}
+public record ProcessTextCommand(string Text) : ICommand<IAsyncEnumerable<char>>;

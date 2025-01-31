@@ -1,6 +1,6 @@
-﻿using OneInc.Server.Application.Common.Constants;
+﻿using App.Application.Common.Constants;
 
-namespace OneInc.Server.Application.TextProcessing.Commands.EncodeText;
+namespace App.Application.TextProcessing.Commands.EncodeText;
 
 public class EncodeTextCommandValidator : AbstractValidator<EncodeTextCommand>
 {

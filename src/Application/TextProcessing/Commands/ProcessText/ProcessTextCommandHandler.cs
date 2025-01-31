@@ -1,21 +1,14 @@
 ﻿using System.Runtime.CompilerServices;
-using OneInc.Server.Application.Common.Interfaces;
-using OneInc.Server.Application.TextProcessing.Commands.EncodeText;
+using App.Application.TextProcessing.Commands.EncodeText;
+using App.Application.Common.Interfaces;
 
-namespace OneInc.Server.Application.TextProcessing.Commands.ProcessText;
+namespace App.Application.TextProcessing.Commands.ProcessText;
 
-public class ProcessTextCommandHandler : IRequestHandler<ProcessTextCommand, IAsyncEnumerable<char>>
+public class ProcessTextCommandHandler(IMediator mediator) : IRequestHandler<ProcessTextCommand, IAsyncEnumerable<char>>
 {
-    private readonly IMediator _mediator;
-
-    public ProcessTextCommandHandler(IMediator mediator)
-    {
-        _mediator = mediator;
-    }
-
     public async Task<IAsyncEnumerable<char>> Handle(ProcessTextCommand request, CancellationToken cancellationToken)
     {
-        var encodedText = await _mediator.Send(new EncodeTextCommand(request.Text), cancellationToken);
+        var encodedText = await mediator.Send(new EncodeTextCommand(request.Text), cancellationToken);
 
         return ProcessTextAsync(encodedText, cancellationToken);
     }

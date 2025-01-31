@@ -17,11 +17,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Packages.props = Directory.Packages.props
 		global.json = global.json
 		README.md = README.md
+		Dockerfile = Dockerfile
+		docker-compose.yaml = docker-compose.yaml
+		.dockerignore = .dockerignore
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "src\Web\Web.csproj", "{4E4EE20C-F06A-4A1B-851F-C5577796941C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "src\API\API.csproj", "{4E4EE20C-F06A-4A1B-851F-C5577796941C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationTests", "tests\ApplicationTests\ApplicationTests.csproj", "{89E6EBF3-C508-48BF-A6B5-DC327DE7F901}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.UnitTests", "tests\Application.UnitTests\Application.UnitTests.csproj", "{89E6EBF3-C508-48BF-A6B5-DC327DE7F901}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.UnitTests", "tests\API.UnitTests\API.UnitTests.csproj", "{8C817C1C-9308-4D45-87EC-197453C74157}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +46,10 @@ Global
 		{89E6EBF3-C508-48BF-A6B5-DC327DE7F901}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89E6EBF3-C508-48BF-A6B5-DC327DE7F901}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89E6EBF3-C508-48BF-A6B5-DC327DE7F901}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C817C1C-9308-4D45-87EC-197453C74157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C817C1C-9308-4D45-87EC-197453C74157}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C817C1C-9308-4D45-87EC-197453C74157}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C817C1C-9308-4D45-87EC-197453C74157}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +58,7 @@ Global
 		{34C0FACD-F3D9-400C-8945-554DD6B0819A} = {6ED356A7-8B47-4613-AD01-C85CF28491BD}
 		{4E4EE20C-F06A-4A1B-851F-C5577796941C} = {6ED356A7-8B47-4613-AD01-C85CF28491BD}
 		{89E6EBF3-C508-48BF-A6B5-DC327DE7F901} = {664D406C-2F83-48F0-BFC3-408D5CB53C65}
+		{8C817C1C-9308-4D45-87EC-197453C74157} = {664D406C-2F83-48F0-BFC3-408D5CB53C65}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3CB609D9-5D54-4C11-A371-DAAC8B74E430}
