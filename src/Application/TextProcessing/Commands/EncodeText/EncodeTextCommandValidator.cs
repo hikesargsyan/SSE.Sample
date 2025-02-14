@@ -9,7 +9,7 @@ public class EncodeTextCommandValidator : AbstractValidator<EncodeTextCommand>
         RuleFor(x => x.Text)
             .Must(s => !string.IsNullOrWhiteSpace(s) )
             .WithMessage(ValidationErrorCode.NotNullOrEmpty)
-            .MaximumLength(100)
+            .MaximumLength(ValidationConstants.StringMaxLength)
             .WithMessage(ValidationErrorCode.MaxLength);
     }
 }
